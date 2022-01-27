@@ -5,12 +5,23 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.custom.i18n.resources" value="mesTextes"/>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
 
     <package name="default" namespace="/" extends="struts-default">
 
         <default-action-ref name="accueil"/>
         <action name="accueil">
             <result>/WEB-INF/pages/pageAccueil.jsp</result>
+        </action>
+        <action name="connexion">
+            <result>/WEB-INF/pages/connexion.jsp</result>
+        </action>
+        <action name="calculatricestatique">
+            <result>/WEB-INF/pages/calculatricestatique.jsp</result>
+        </action>
+        <action name="calculatricedynamique">
+            <result>/WEB-INF/pages/calculatricedynamique.jsp</result>
         </action>
     </package>
 
