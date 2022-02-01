@@ -21,6 +21,13 @@
     }
 </style>
 <body>
+<s:form action="calcul">
+<s:textfield name="operand1" key="calculatricestatique.op1"></s:textfield>
+<s:textfield name="operand2" key="calculatricestatique.op2"></s:textfield>
+<s:select list="{'Addition', 'Soustraction', 'Multiplication', 'Division'}"  name="operation"/>
+    <s:submit></s:submit>
+</s:form>
+
 <s:a action = "accueil"><s:text name = "accueil.titre"></s:text></s:a>
 
 </body>

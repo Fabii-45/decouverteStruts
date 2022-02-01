@@ -23,6 +23,16 @@
         <action name="calculatricedynamique">
             <result>/WEB-INF/pages/calculatricedynamique.jsp</result>
         </action>
+
+        <action name="saisie" class="actions.Saisie">
+            <result name="success">/WEB-INF/pages/infosSaisies.jsp</result>
+            <result name="input">/WEB-INF/pages/connexion.jsp</result>
+        </action>
+
+        <action name="calcul" class="actions.Calcul">
+            <result name="success">/WEB-INF/pages/resultatStatique.jsp</result>
+            <result name="input">/WEB-INF/pages/calculatricestatique.jsp</result>
+        </action>
     </package>
 
 </struts>

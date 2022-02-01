@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: tplocal
-  Date: 27/01/2022
-  Time: 11:50
+  Date: 01/02/2022
+  Time: 11:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title><s:text name="connexion.titre"></s:text></title>
+    <title><s:text name="resultatStatique.titre"></s:text></title>
 </head>
 <style>
     body {
@@ -21,14 +21,7 @@
     }
 </style>
 <body>
-<s:form action="saisie">
-    <s:textfield name="pseudo" key="connexion.pseudo"></s:textfield>
-    <s:password name="motSecret" key="connexion.motSecret"></s:password>
 
-
-    <s:submit key="connexion.bouton"></s:submit>
-</s:form>
-<s:a action = "accueil"><s:text name = "accueil.titre"></s:text></s:a>
 
 </body>
 </html>
