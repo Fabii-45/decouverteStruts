@@ -7,6 +7,8 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
     <constant name="struts.custom.i18n.resources" value="mesTextes"/>
     <constant name="struts.i18n.encoding" value="UTF-8" />
+    <bean class="modele.CalculatriceDynamiqueDuFuturImpl" type="modele.CalculatriceDynamiqueDuFutur"
+          scope="singleton" name="facade"/>
 
     <package name="default" namespace="/" extends="struts-default">
 
@@ -20,8 +22,13 @@
         <action name="calculatricestatique">
             <result>/WEB-INF/pages/calculatricestatique.jsp</result>
         </action>
-        <action name="calculatricedynamique">
+        <action name="calculatricedynamique" class="actions.Operations">
             <result>/WEB-INF/pages/calculatricedynamique.jsp</result>
+        </action>
+
+        <action name="calculdynamique" class="actions.CalculDynamique">
+            <result name="success">/WEB-INF/pages/resultatDynamique.jsp</result>
+            <result name="input">/WEB-INF/pages/calculatricedynamique.jsp</result>
         </action>
 
         <action name="saisie" class="actions.Saisie">

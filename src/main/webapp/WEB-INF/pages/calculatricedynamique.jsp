@@ -21,7 +21,13 @@
     }
 </style>
 <body>
-<s:a action = "accueil"><s:text name = "accueil.titre"></s:text></s:a>
+<s:form action="calculdynamique">
+    <s:textfield name="operand1" key="calculatricedynamique.op1"></s:textfield>
+    <s:textfield name="operand2" key="calculatricedynamique.op2"></s:textfield>
+    <s:select list="%{lesOperations}" name="operation" key="resultatDynamique.select"/>
+    <s:submit></s:submit>
+</s:form>
 
+<s:a action = "accueil"><s:text name = "accueil.titre"></s:text></s:a>
 </body>
 </html>

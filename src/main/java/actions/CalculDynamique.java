@@ -1,15 +1,29 @@
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.inject.Inject;
+import modele.CalculatriceDynamiqueDuFutur;
+import modele.exceptions.NonSupporteeException;
 
-import java.util.Objects;
+import java.util.Collection;
 
-public class Calcul extends ActionSupport {
+public class CalculDynamique extends ActionSupport {
 
     private double operand1;
     private double operand2;
     private String operation;
     private double resultat;
+    private CalculatriceDynamiqueDuFutur facade;
+    private long compteur;
+
+    @Inject("facade")
+    public void setFacade(CalculatriceDynamiqueDuFutur facade) {
+        this.facade = facade;
+    }
+
+    public Collection<String> getLesOperations() {
+        return facade.getOperations();
+    }
 
     public void setOperand1(double operand1) {
         this.operand1 = operand1;
@@ -40,6 +54,14 @@ public class Calcul extends ActionSupport {
         return resultat;
     }
 
+    public CalculatriceDynamiqueDuFutur getFacade() {
+        return facade;
+    }
+
+    public long getCompteur() {
+        return compteur;
+    }
+
     @Override
     public void validate() {
         if (operation.equals("Division") && operand2 == 0){
@@ -49,25 +71,9 @@ public class Calcul extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        switch (operation){
-            case "Addition": {
-                resultat = operand1 + operand2;
-                break;
-            }
-            case "Soustraction": {
-                resultat = operand1 - operand2;
-                break;
-            }
-            case "Multiplication": {
-                resultat = operand1 * operand2;
-                break;
-            }
-            case "Division": {
-                resultat = operand1 / operand2;
-                break;
-            }
-
-        }
+        resultat = facade.doCalcul(operation,operand1,operand2);
+        compteur = facade.getValeurCompteur()+1;
         return super.execute();
     }
+
 }
